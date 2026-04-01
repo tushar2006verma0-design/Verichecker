@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ===== Design Tokens ===== */
+:root {
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #161625;
+  --accent-violet: #7c3aed;
+  --accent-indigo: #4f46e5;
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light mode adjustments */
+html:not(.dark) body {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+html:not(.dark) .bg-slate-800\/80 {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+html:not(.dark) .bg-slate-800\/50,
+html:not(.dark) .bg-slate-800\/60,
+html:not(.dark) .bg-slate-800\/30,
+html:not(.dark) .bg-slate-800\/40 {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+html:not(.dark) .bg-slate-900\/50 {
+  background: rgba(248, 250, 252, 0.95) !important;
+}
+
+html:not(.dark) .text-white {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .text-slate-300 {
+  color: #334155 !important;
+}
+
+html:not(.dark) .text-slate-400 {
+  color: #475569 !important;
+}
+
+html:not(.dark) .text-slate-500 {
+  color: #64748b !important;
+}
+
+html:not(.dark) .border-slate-700\/50,
+html:not(.dark) .border-slate-700\/30,
+html:not(.dark) .border-slate-700\/20,
+html:not(.dark) .border-slate-600\/30 {
+  border-color: rgba(226, 232, 240, 0.8) !important;
+}
+
+html:not(.dark) .bg-gradient-to-r.from-white {
+  --tw-gradient-from: #1e1b4b !important; /* Dark indigo */
+  --tw-gradient-to: #4338ca !important;   /* Indigo-700 */
+}
+
+html:not(.dark) .via-violet-400 {
+  --tw-gradient-stops: #312e81, #4f46e5, #4338ca !important;
+}
+
+/* Fix for the Hero title in ClaimInput.jsx */
+html:not(.dark) .via-slate-200 {
+  --tw-gradient-stops: #0f172a, #334155, #475569 !important;
+}
+
+html:not(.dark) .placeholder-slate-500::placeholder {
+  color: #475569 !important;
+}
+
+/* ===== Background Pattern ===== */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+html:not(.dark) .bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+}
+
+/* ===== Animations ===== */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-in {
+  animation: fade-in 0.7s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.5);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: rgba(124, 58, 237, 0.3);
+  color: white;
+}
