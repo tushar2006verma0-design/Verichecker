@@ -28,8 +28,9 @@ export async function POST(request) {
       amount: order.amount,
       currency: order.currency
     });
-  } catch (error) {
-    console.error('Razorpay Order Error:', error);
-    return NextResponse.json({ error: 'Order creation failed' }, { status: 500 });
-  }
+  } export async function POST() {
+  return new Response(
+    JSON.stringify({ message: "Payments disabled for now" }),
+    { status: 200 }
+  );
 }
